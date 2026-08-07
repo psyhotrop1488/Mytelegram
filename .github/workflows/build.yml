@@ -17,6 +17,11 @@ jobs:
         distribution: 'temurin'
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
+    - name: Check files
+      run: |
+        pwd
+        ls -la
+        find . -name "AndroidManifest.xml"
     - name: Build APK
       run: |
         chmod +x gradlew
@@ -26,3 +31,5 @@ jobs:
       with:
         name: app-debug
         path: app/build/outputs/apk/debug/*.apk
+
+
